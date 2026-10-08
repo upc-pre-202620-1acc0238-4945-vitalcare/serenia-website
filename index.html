@@ -286,3 +286,52 @@
 </div>
 </section>
 
+<!-- PRIVACY -->
+<section data-sec="1" style="background:#FBF6EC;padding:104px max(24px,calc((100% - 1112px)/2))">
+<div data-reveal="1" style="background:#12554D;color:#fff;border-radius:36px;padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px;align-items:center">
+<div>
+<h2 style="font-size:clamp(30px,3.6vw,42px);line-height:1.12;font-weight:900;margin:0 0 16px;text-wrap:balance">Oportuna, no alarmista.</h2>
+<p style="margin:0;color:#E3EEE4;font-size:19px">Serenia avisa cuando un malestar se sostiene en el tiempo, con una sugerencia amable de qué hacer. Un mal día es solo un mal día. Tú decides qué comparte tu familiar y con quién.</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<template data-list="trust"></template>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section data-sec="1" id="planes" style="background:#DCEADF;padding:104px max(24px,calc((100% - 1112px)/2))">
+<div style="text-align:center;max-width:640px;margin:0 auto 36px">
+<div style="font-weight:800;color:#17695F;font-size:16px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px">Planes</div>
+<h2 style="font-size:clamp(32px,4vw,46px);line-height:1.1;font-weight:900;margin:0 0 12px;color:#12554D;text-wrap:balance">Empieza gratis. Suma familia cuando quieras.</h2>
+<p style="margin:0;color:#3C524E">Prueba el plan Familia 14 días sin costo.</p>
+</div>
+<div style="display:flex;justify-content:center;margin-bottom:36px">
+<div style="display:inline-flex;background:#fff;border:1.5px solid #E9E0CC;border-radius:999px;padding:5px;gap:4px">
+<button data-on-click="setMonthly" style="font:inherit;font-weight:800;font-size:17px;border:0;cursor:pointer;min-height:48px;padding:0 26px;border-radius:999px" data-bind-style="background:monthlyBg;color:monthlyFg">Mensual</button>
+<button data-on-click="setAnnual" style="font:inherit;font-weight:800;font-size:17px;border:0;cursor:pointer;min-height:48px;padding:0 26px;border-radius:999px" data-bind-style="background:annualBg;color:annualFg">Anual · −25 %</button>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px;max-width:900px;margin:0 auto;align-items:stretch">
+<div data-reveal="1" data-pcard="1" style="background:#fff;border:1.5px solid #E9E0CC;border-radius:32px;padding:40px;display:flex;flex-direction:column">
+<div style="font-weight:800;font-size:22px;color:#12554D">Básico</div>
+<div style="font-size:48px;font-weight:900;margin:8px 0 4px;line-height:1.1">Gratis</div>
+<div style="font-size:16px;color:#4A625E;margin-bottom:24px">Para empezar a acompañar</div>
+<ul style="list-style:none;margin:0 0 32px;padding:0;display:flex;flex-direction:column;gap:12px">
+<template data-list="basicList"></template>
+</ul>
+<a href="#planes" style="margin-top:auto;text-align:center;background:#fff;border:2px solid #17695F;color:#12554D;font-weight:800;min-height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:18px" class="hv-9">Descargar gratis</a>
+</div>
+<div data-reveal="1" data-pcard="1" style="background:#17695F;color:#fff;border-radius:32px;padding:40px;display:flex;flex-direction:column;position:relative;box-shadow:0 24px 50px #17695F33">
+<div style="position:absolute;top:-16px;right:32px;background:#F6E3C8;color:#4A2E14;font-weight:800;font-size:14px;padding:6px 16px;border-radius:999px">14 días gratis</div>
+<div style="font-weight:800;font-size:22px">Familia</div>
+<div style="display:flex;align-items:baseline;gap:8px;margin:8px 0 4px;flex-wrap:wrap"><span style="font-size:48px;font-weight:900;line-height:1.1" data-bind-text="price"></span><span style="font-size:18px;font-weight:700;color:#E3EEE4" data-bind-text="per"></span></div>
+<div style="font-size:16px;color:#E3EEE4;margin-bottom:24px" data-bind-text="priceNote"></div>
+<ul style="list-style:none;margin:0 0 32px;padding:0;display:flex;flex-direction:column;gap:12px">
+<template data-list="famList"></template>
+</ul>
+<a href="#planes" style="margin-top:auto;text-align:center;background:#F6E3C8;color:#2A1708;font-weight:900;min-height:54px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:18px" class="hv-10">Probar 14 días gratis</a>
+</div>
+</div>
+</section>
+
