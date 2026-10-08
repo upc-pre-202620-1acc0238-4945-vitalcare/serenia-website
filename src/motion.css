@@ -1,0 +1,95 @@
+/* Motion & interaction layer.
+   Uses the individual `translate` / `scale` / `rotate` properties so effects never fight the
+   inline `transform` values used by the floating chips and the step / feature rows. */
+
+@keyframes fadeUp { from { opacity: 0; translate: 0 26px; } to { opacity: 1; translate: 0 0; } }
+@keyframes panelIn { from { opacity: 0; translate: 0 16px; scale: .97; } to { opacity: 1; translate: 0 0; scale: 1; } }
+@keyframes pop { 0% { scale: .4; opacity: 0; } 60% { scale: 1.18; opacity: 1; } 100% { scale: 1; } }
+@keyframes shake { 0%, 100% { translate: 0 0; } 20% { translate: -7px 0; } 40% { translate: 7px 0; } 60% { translate: -5px 0; } 80% { translate: 4px 0; } }
+@keyframes wiggle { 0%, 100% { rotate: 0deg; } 25% { rotate: -12deg; } 75% { rotate: 12deg; } }
+@keyframes ripple { to { scale: 4; opacity: 0; } }
+@keyframes faqIn { from { opacity: 0; translate: 0 -8px; } to { opacity: 1; translate: 0 0; } }
+
+/* ---------- Hero entrance (slow, staggered reveal) ---------- */
+@keyframes heroPanel { from { opacity: 0; scale: .97; } to { opacity: 1; scale: 1; } }
+@keyframes heroText { from { opacity: 0; translate: 0 40px; filter: blur(10px); } to { opacity: 1; translate: 0 0; filter: blur(0); } }
+@keyframes heroLayer { from { opacity: 0; scale: .9; filter: blur(8px); } to { opacity: 1; scale: 1; filter: blur(0); } }
+[data-heropanel] { animation: heroPanel 1.6s cubic-bezier(.22, .61, .36, 1) both; }
+[data-heropanel] > div:first-child > * { animation: heroText 1.5s cubic-bezier(.22, .61, .36, 1) both; animation-delay: .3s; }
+[data-heropanel] > div:first-child > :nth-child(2) { animation-delay: .6s; }
+[data-heropanel] > div:first-child > :nth-child(3) { animation-delay: .9s; }
+[data-heropanel] > div:first-child > :nth-child(4) { animation-delay: 1.2s; }
+[data-herovis] > div { animation: heroLayer 1.4s cubic-bezier(.22, .61, .36, 1) backwards; transition: translate .35s ease-out; }
+[data-herovis] > :nth-child(1) { animation-delay: .5s; }
+[data-herovis] > :nth-child(2) { animation-delay: 1.1s; }
+[data-herovis] > :nth-child(3) { animation-delay: 1.4s; }
+[data-herovis] > :nth-child(4) { animation-delay: 1.7s; }
+
+/* ---------- Buttons ---------- */
+.btn-fx { position: relative; overflow: hidden; }
+.btn-fx::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .38) 50%, transparent 70%);
+  translate: -130% 0; transition: translate .7s ease;
+}
+.btn-fx:hover::after { translate: 130% 0; }
+.btn-fx:active, [role="button"]:active, button:active { scale: .96; }
+.ripple {
+  position: absolute; border-radius: 50%; pointer-events: none; background: rgba(255, 255, 255, .5);
+  width: 40px; height: 40px; margin: -20px 0 0 -20px; animation: ripple .6s ease-out forwards;
+}
+[data-navlogo] { transition: scale .3s; }
+[data-navlogo]:hover { scale: 1.07; }
+footer a { transition: translate .2s, color .2s; }
+footer a:hover { translate: 4px 0; }
+
+/* ---------- Cards ---------- */
+[data-pcard], [data-spot] { position: relative; transition: translate .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s; }
+[data-pcard]:hover { translate: 0 -8px; box-shadow: 0 28px 56px #1F3B3724; }
+[data-pcard]::before, [data-spot]::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 1;
+  opacity: 0; transition: opacity .3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--spot, rgba(255, 255, 255, .35)), transparent 60%);
+}
+[data-pcard][style*="background:#fff"] { --spot: rgba(23, 105, 95, .1); }
+[data-pcard]:hover::before, [data-spot]:hover::before { opacity: 1; }
+
+[data-gen="attrs"] { transition: translate .3s; }
+[data-gen="attrs"]:hover { translate: 0 -4px; }
+[data-gen="trust"] { transition: translate .25s, background .25s; }
+[data-gen="trust"]:hover { translate: 6px 0; background: #FFFFFF22 !important; }
+[data-gen="faqs"] { transition: box-shadow .25s, border-color .25s; }
+[data-gen="faqs"]:hover { box-shadow: 0 10px 24px #1F3B3712; border-color: #17695F !important; }
+[data-gen="faqs"] > div:last-child { animation: faqIn .35s ease-out; }
+[data-gen="feats"]:hover svg { animation: wiggle .5s ease; }
+[data-gen="steps"]:hover > div:first-child { scale: 1.1; }
+[data-gen="steps"] > div:first-child { transition: scale .25s, background .3s, color .3s !important; }
+[data-gen="moods"] { transition: scale .15s, background .25s, border-color .25s !important; }
+
+/* ---------- Images ---------- */
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: scale .9s cubic-bezier(.2, .7, .2, 1); }
+.img-zoom:hover img { scale: 1.07; }
+
+/* ---------- Panels & state changes ---------- */
+[data-howpanel] > [data-bind-style^="display"] { animation: panelIn .55s cubic-bezier(.2, .7, .2, 1); }
+[data-bind-style="display:wErrDisp"] { animation: shake .4s; }
+[data-bind-style="display:wDoneDisp"] > div:first-child { animation: pop .55s cubic-bezier(.2, .7, .2, 1); }
+
+/* ---------- Back to top ---------- */
+.to-top {
+  position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 52px; height: 52px; border-radius: 50%;
+  border: 0; background: #17695F; color: #fff; font: inherit; font-size: 22px; font-weight: 800; cursor: pointer;
+  box-shadow: 0 12px 28px #17695F55; opacity: 0; translate: 0 20px; pointer-events: none;
+  transition: opacity .3s, translate .3s, background .2s;
+}
+.to-top.show { opacity: 1; translate: 0 0; pointer-events: auto; }
+.to-top:hover { background: #0F4F47; translate: 0 -3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-heropanel], [data-heropanel] > div:first-child > *, [data-herovis] > div, [data-howpanel] > [data-bind-style^="display"],
+  [data-gen="faqs"] > div:last-child, [data-bind-style="display:wErrDisp"],
+  [data-bind-style="display:wDoneDisp"] > div:first-child, [data-gen="feats"]:hover svg { animation: none !important; }
+  .btn-fx::after, .img-zoom img, [data-pcard], [data-spot], .to-top { transition: none !important; }
+  .img-zoom:hover img, [data-pcard]:hover, [data-gen]:hover { scale: none; translate: none; }
+}
