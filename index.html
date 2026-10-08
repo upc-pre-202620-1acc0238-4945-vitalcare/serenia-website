@@ -118,3 +118,19 @@
 <meta name="theme-color" content="#17695F">
 <script type="module" src="/src/main.js"></script>
 </head>
+<body>
+<div style="background:#FBF6EC;color:#1F3B37;font-family:'Figtree',system-ui,sans-serif;font-size:18px;line-height:1.6;overflow-x:clip">
+
+<!-- NAV -->
+<div style="height:78px"></div>
+<header style="position:fixed;top:12px;left:0;right:0;z-index:50;padding:0 16px">
+<div data-navpill="1" style="max-width:1160px;margin:0 auto;position:relative;background:#FFFDF8E6;backdrop-filter:blur(14px);border:1px solid #E9E0CC;border-radius:999px;padding:8px 10px 8px 22px;align-items:center;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;overflow:hidden;transition:box-shadow .3s" data-bind-style="box-shadow:navShadow">
+<a href="#inicio" style="display:flex;align-items:center;justify-self:start"><img src="/assets/serenia-logo-horizontal.png" data-navlogo="1" alt="Serenia" style="height:42px;mix-blend-mode:multiply;display:block"></a>
+<nav style="display:flex;gap:4px;align-items:center;flex-wrap:nowrap;font-weight:700;font-size:16px">
+<template data-list="navLinks"></template>
+</nav>
+<div data-navright="1" style="justify-self:end;display:flex;align-items:center;gap:10px"><div role="group" aria-label="Idioma / Language" style="display:inline-flex;background:#F2EAD8;border-radius:999px;padding:3px"><button data-langbtn="1" data-on-click="setEs" style="font:inherit;font-weight:800;font-size:14px;border:0;cursor:pointer;min-height:44px;min-width:46px;border-radius:999px;transition:background .2s,color .2s" data-bind-style="background:esBg;color:esFg" data-bind-attr="aria-pressed:isEs">ES</button><button data-langbtn="1" data-on-click="setEn" style="font:inherit;font-weight:800;font-size:14px;border:0;cursor:pointer;min-height:44px;min-width:46px;border-radius:999px;transition:background .2s,color .2s" data-bind-style="background:enBg;color:enFg" data-bind-attr="aria-pressed:isEn">EN</button></div><a data-navcta="1" href="#planes" style="white-space:nowrap;background:#17695F;color:#fff;font-weight:800;padding:0 26px;border-radius:999px;min-height:48px;display:inline-flex;align-items:center;transition:transform .2s,background .2s" class="hv-1">Probar gratis</a></div>
+<div style="position:absolute;left:0;bottom:0;height:3px;background:#E8A87C" data-bind-style="width:progress"></div>
+</div>
+</header>
+
