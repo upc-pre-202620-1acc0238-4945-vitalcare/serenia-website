@@ -107,7 +107,7 @@ export const dict = {
   "Sí, cuando quieras. El plan Básico sigue siendo gratuito y conserva tu check-in diario y el botón de ayuda.": "Yes, anytime. The Basic plan stays free and keeps your daily check-in and the help button.",
   "al año": "per year",
   "al mes": "per month",
-  "≈ US$15 al mes · ahorras 25 %": "≈ US$15 per month · you save 25 %",
+  "≈ US$4.15 al mes · ahorras 25 %": "≈ US$4.15 per month · you save 25 %",
   "≈ US$5.50 al mes": "≈ US$5.50 per month",
   "Sencilla": "Simple",
   "Pocos pasos, sin tecnicismos.": "Few steps, no jargon.",

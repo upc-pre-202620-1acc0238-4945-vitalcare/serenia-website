@@ -135,7 +135,7 @@ function viewModel() {
     monthlyBg: toggleBg(!a), monthlyFg: toggleFg(!a), annualBg: toggleBg(a), annualFg: toggleFg(a),
     price: a ? 'S/ 179' : 'S/ 19.90',
     per: t(a ? 'al año' : 'al mes'),
-    priceNote: t(a ? '≈ US$15 al mes · ahorras 25 %' : '≈ US$5.50 al mes'),
+    priceNote: t(a ? '≈ US$4.15 al mes · ahorras 25 %' : '≈ US$5.50 al mes'),
     famTitle: t(mood.title), famNote: t(mood.note),
     navShadow: state.scrolled ? '0 10px 30px #1F3B3724' : '0 2px 8px #1F3B3710',
     progress: (state.progress * 100).toFixed(1) + '%',
