@@ -14,6 +14,16 @@ export const templates = {
   trust: (t, index) => `<div style="background:#FFFFFF14;border:1.5px solid #FFFFFF30;border-radius:20px;padding:18px 22px;font-weight:700;font-size:18px">${t}</div>`,
   basicList: (i, index) => `<li style="display:flex;gap:12px;font-size:17px"><span style="width:10px;height:10px;border-radius:50%;background:#6FB39A;flex:none;margin-top:10px"></span><span>${i}</span></li>`,
   famList: (i, index) => `<li style="display:flex;gap:12px;font-size:17px"><span style="width:10px;height:10px;border-radius:50%;background:#F6E3C8;flex:none;margin-top:10px"></span><span>${i}</span></li>`,
+  // VideoCard: eyebrow, serif title with an italic accent word, short description and a 16:9 embed.
+  // Falls back to a "coming soon" frame while `embed` is empty.
+  videos: (v, index) => `<article data-vcard="1" style="background:#fff;border:1.5px solid #E9E0CC;border-radius:32px;padding:40px;display:flex;flex-direction:column;gap:16px;box-shadow:0 24px 50px #1F3B3722">
+<div style="font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#17695F">${v.label}</div>
+<h3 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400!important;font-size:clamp(34px,3.6vw,46px);line-height:1.05;letter-spacing:-0.01em;margin:0;color:#0F3F39">${v.lead} <em style="color:#17695F">${v.accent}</em></h3>
+<p style="margin:0 0 8px;font-size:18px;color:#3C524E;text-wrap:pretty">${v.d}</p>
+${v.embed
+    ? `<iframe src="${v.embed}" title="${v.title}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="margin-top:auto;display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:32px;background:#E3EEE4"></iframe>`
+    : `<div style="margin-top:auto;width:100%;aspect-ratio:16/9;border-radius:32px;background:#E3EEE4;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;color:#12554D">${v.soon}</div>`}
+</article>`,
   faqs: (q, index) => `<div style="background:#FBF6EC;border:1.5px solid #E9E0CC;border-radius:22px;overflow:hidden">
 <button data-click="faqs" data-i="${index}" aria-expanded="${q.expanded}" style="font:inherit;width:100%;text-align:left;background:none;border:0;cursor:pointer;min-height:64px;padding:12px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:800;font-size:19px;color:#12554D"><span>${q.q}</span><span style="font-size:28px;font-weight:700;color:#17695F;flex:none">${q.sign}</span></button>
 <div style="display:${q.display};padding:0 26px 22px;color:#3C524E">${q.a}</div>
