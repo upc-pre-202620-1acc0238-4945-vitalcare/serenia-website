@@ -27,7 +27,7 @@ const MOODS = [
   { label: 'No muy bien', dot: '#E8896B', title: 'Hoy no se siente muy bien', note: '“Extraño a todos.”' },
 ];
 
-const NAV = [['como', 'Cómo funciona'], ['familia', 'Para quién'], ['funciones', 'Funciones'], ['planes', 'Planes']];
+const NAV = [['como', 'Cómo funciona'], ['familia', 'Para quién'], ['funciones', 'Funciones'], ['videos', 'Conócenos'], ['planes', 'Planes']];
 
 const ATTRS = [
   { t: 'Sencilla', d: 'Pocos pasos, sin tecnicismos.' },
