@@ -74,7 +74,7 @@ const VIDEOS = [
   { label: 'Producto · Vista general', bg: '#F8E8CF', ink: '#7A4A1E', lead: 'Sobre el', accent: 'Producto', url: 'https://youtu.be/Z3_SAiWeU18',
     title: 'Video sobre el producto Serenia',
     d: 'Una vista general de Serenia: qué problema resuelve, cómo funciona para el adulto mayor y su familia, y sus funciones clave.' },
-  { label: 'Equipo · Proceso', bg: '#E3EEE4', ink: '#12554D', lead: 'Sobre el', accent: 'Equipo', url: '', // TODO: add the team video link
+  { label: 'Equipo · Proceso', bg: '#E3EEE4', ink: '#12554D', lead: 'Sobre el', accent: 'Equipo', url: 'https://youtu.be/U7uDbM6dIn4',
     title: 'Video sobre el equipo de Serenia',
     d: 'Un vistazo al proceso de trabajo del equipo y el testimonio de cada integrante sobre sus actividades, logros y competencias desarrolladas.' },
 ];
