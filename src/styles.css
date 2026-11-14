@@ -253,6 +253,9 @@ a:hover{color:#0F4F47}
 [data-navcta]{padding:0 12px!important;font-size:14px!important}
 [data-abody]{padding:26px 22px 28px!important}
 [data-pcard]{padding:28px!important}
+[data-vcard]{padding:26px 22px 28px!important}
+[data-vcard] p{font-size:16px!important}
+[data-vcard] iframe,[data-vcard]>div:last-child{border-radius:22px!important}
 [data-howpanel]{padding:18px!important;min-height:0!important}
 [data-featpanel]{min-height:0!important}
 }

@@ -27,7 +27,7 @@ const MOODS = [
   { label: 'No muy bien', dot: '#E8896B', title: 'Hoy no se siente muy bien', note: '“Extraño a todos.”' },
 ];
 
-const NAV = [['como', 'Cómo funciona'], ['familia', 'Para quién'], ['funciones', 'Funciones'], ['planes', 'Planes']];
+const NAV = [['como', 'Cómo funciona'], ['familia', 'Para quién'], ['funciones', 'Funciones'], ['videos', 'Conócenos'], ['planes', 'Planes']];
 
 const ATTRS = [
   { t: 'Sencilla', d: 'Pocos pasos, sin tecnicismos.' },
@@ -62,6 +62,21 @@ const FEATURES = [
     long: 'Siempre a la vista, en todas las pantallas. Un toque avisa a su círculo de cuidado.', plan: 'Plan Básico y Familia' },
   { d: 'M8 2v4 M16 2v4 M3 10h18 M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M9 16l2 2 4-4', c: '#17695F', bg: '#E3EEE4', t: 'Resumen del día',
     long: 'Cada día, un resumen claro de cómo estuvo, para que la familia no tenga que preguntar.', plan: 'Plan Básico y Familia' },
+];
+
+// YouTube link (youtu.be/<ID>, watch?v=<ID>, embed/<ID>) -> privacy-enhanced embed URL. Empty -> ''.
+const toEmbed = (url) => {
+  const id = url.match(/(?:youtu\.be\/|[?&]v=|\/embed\/)([\w-]{11})/)?.[1];
+  return id ? `https://www.youtube-nocookie.com/embed/${id}` : '';
+};
+
+const VIDEOS = [
+  { label: 'Producto · Vista general', bg: '#F8E8CF', ink: '#7A4A1E', lead: 'Sobre el', accent: 'Producto', url: 'https://youtu.be/Z3_SAiWeU18',
+    title: 'Video sobre el producto Serenia',
+    d: 'Una vista general de Serenia: qué problema resuelve, cómo funciona para el adulto mayor y su familia, y sus funciones clave.' },
+  { label: 'Equipo · Proceso', bg: '#E3EEE4', ink: '#12554D', lead: 'Sobre el', accent: 'Equipo', url: '', // TODO: add the team video link
+    title: 'Video sobre el equipo de Serenia',
+    d: 'Un vistazo al proceso de trabajo del equipo y el testimonio de cada integrante sobre sus actividades, logros y competencias desarrolladas.' },
 ];
 
 const TRUST = ['Compartes solo el estado del día', 'Alertas solo ante malestar sostenido', 'Tú eliges quién está en el círculo'];
@@ -117,6 +132,10 @@ function viewModel() {
         rowSh: on ? '0 12px 28px #6A442022' : 'none', rowTf: on ? 'translateX(6px)' : 'none',
       };
     }),
+    videos: VIDEOS.map((v) => ({
+      label: t(v.label), lead: t(v.lead), accent: t(v.accent), d: t(v.d), title: t(v.title),
+      bg: v.bg, ink: v.ink, embed: toEmbed(v.url), soon: t('Video disponible pronto'),
+    })),
     trust: TRUST.map(t),
     basicList: BASIC_LIST.map(t),
     famList: FAMILY_LIST.map(t),
@@ -135,7 +154,7 @@ function viewModel() {
     monthlyBg: toggleBg(!a), monthlyFg: toggleFg(!a), annualBg: toggleBg(a), annualFg: toggleFg(a),
     price: a ? 'S/ 179' : 'S/ 19.90',
     per: t(a ? 'al año' : 'al mes'),
-    priceNote: t(a ? '≈ US$15 al mes · ahorras 25 %' : '≈ US$5.50 al mes'),
+    priceNote: t(a ? '≈ US$4.15 al mes · ahorras 25 %' : '≈ US$5.50 al mes'),
     famTitle: t(mood.title), famNote: t(mood.note),
     navShadow: state.scrolled ? '0 10px 30px #1F3B3724' : '0 2px 8px #1F3B3710',
     progress: (state.progress * 100).toFixed(1) + '%',
