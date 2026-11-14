@@ -19,7 +19,7 @@ export const templates = {
   videos: (v, index) => `<article data-vcard="1" style="background:#fff;border:1.5px solid #E9E0CC;border-radius:32px;padding:40px;display:flex;flex-direction:column;gap:16px;box-shadow:0 24px 50px #1F3B3722">
 <div style="font-weight:800;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#17695F">${v.label}</div>
 <h3 style="font-family:'Instrument Serif',Georgia,serif;font-weight:400!important;font-size:clamp(34px,3.6vw,46px);line-height:1.05;letter-spacing:-0.01em;margin:0;color:#0F3F39">${v.lead} <em style="color:#17695F">${v.accent}</em></h3>
-<p style="margin:0 0 8px;font-size:18px;color:#3C524E;text-wrap:pretty">${v.d}</p>
+<p style="margin:0 0 8px;font-size:17px;color:#3C524E;text-wrap:pretty">${v.d}</p>
 ${v.embed
     ? `<iframe src="${v.embed}" title="${v.title}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="margin-top:auto;display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:32px;background:#E3EEE4"></iframe>`
     : `<div style="margin-top:auto;width:100%;aspect-ratio:16/9;border-radius:32px;background:#E3EEE4;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;color:#12554D">${v.soon}</div>`}
