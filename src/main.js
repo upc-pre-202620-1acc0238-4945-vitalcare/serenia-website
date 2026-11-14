@@ -64,6 +64,21 @@ const FEATURES = [
     long: 'Cada día, un resumen claro de cómo estuvo, para que la familia no tenga que preguntar.', plan: 'Plan Básico y Familia' },
 ];
 
+// YouTube link (youtu.be/<ID>, watch?v=<ID>, embed/<ID>) -> privacy-enhanced embed URL. Empty -> ''.
+const toEmbed = (url) => {
+  const id = url.match(/(?:youtu\.be\/|[?&]v=|\/embed\/)([\w-]{11})/)?.[1];
+  return id ? `https://www.youtube-nocookie.com/embed/${id}` : '';
+};
+
+const VIDEOS = [
+  { label: 'Producto · Vista general', lead: 'Sobre el', accent: 'Producto', url: 'https://youtu.be/Z3_SAiWeU18',
+    title: 'Video sobre el producto Serenia',
+    d: 'Una vista general de Serenia: qué problema resuelve, cómo funciona para el adulto mayor y su familia, y sus funciones clave.' },
+  { label: 'Equipo · Proceso', lead: 'Sobre el', accent: 'Equipo', url: '', // TODO: add the team video link
+    title: 'Video sobre el equipo de Serenia',
+    d: 'Un vistazo al proceso de trabajo del equipo y el testimonio de cada integrante sobre sus actividades, logros y competencias desarrolladas.' },
+];
+
 const TRUST = ['Compartes solo el estado del día', 'Alertas solo ante malestar sostenido', 'Tú eliges quién está en el círculo'];
 const BASIC_LIST = ['Check-in diario', 'Estado visible para 1 familiar', 'Botón de ayuda', 'Mensajes de audio limitados', 'Historial de los últimos 7 días', 'Logros y resumen semanal básico'];
 const FAMILY_LIST = ['Todo lo del plan Básico', 'Hasta 5 familiares en el círculo', 'Mensajes de audio ilimitados', 'Historial completo de bienestar', 'Sugerencias de acompañamiento', 'Alertas por malestar sostenido', 'Logros y resumen semanal completo'];
@@ -117,6 +132,10 @@ function viewModel() {
         rowSh: on ? '0 12px 28px #6A442022' : 'none', rowTf: on ? 'translateX(6px)' : 'none',
       };
     }),
+    videos: VIDEOS.map((v) => ({
+      label: t(v.label), lead: t(v.lead), accent: t(v.accent), d: t(v.d), title: t(v.title),
+      embed: toEmbed(v.url), soon: t('Video disponible pronto'),
+    })),
     trust: TRUST.map(t),
     basicList: BASIC_LIST.map(t),
     famList: FAMILY_LIST.map(t),
