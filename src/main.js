@@ -71,10 +71,10 @@ const toEmbed = (url) => {
 };
 
 const VIDEOS = [
-  { label: 'Producto · Vista general', lead: 'Sobre el', accent: 'Producto', url: 'https://youtu.be/Z3_SAiWeU18',
+  { label: 'Producto · Vista general', bg: '#F8E8CF', ink: '#7A4A1E', lead: 'Sobre el', accent: 'Producto', url: 'https://youtu.be/Z3_SAiWeU18',
     title: 'Video sobre el producto Serenia',
     d: 'Una vista general de Serenia: qué problema resuelve, cómo funciona para el adulto mayor y su familia, y sus funciones clave.' },
-  { label: 'Equipo · Proceso', lead: 'Sobre el', accent: 'Equipo', url: '', // TODO: add the team video link
+  { label: 'Equipo · Proceso', bg: '#E3EEE4', ink: '#12554D', lead: 'Sobre el', accent: 'Equipo', url: '', // TODO: add the team video link
     title: 'Video sobre el equipo de Serenia',
     d: 'Un vistazo al proceso de trabajo del equipo y el testimonio de cada integrante sobre sus actividades, logros y competencias desarrolladas.' },
 ];
@@ -134,7 +134,7 @@ function viewModel() {
     }),
     videos: VIDEOS.map((v) => ({
       label: t(v.label), lead: t(v.lead), accent: t(v.accent), d: t(v.d), title: t(v.title),
-      embed: toEmbed(v.url), soon: t('Video disponible pronto'),
+      bg: v.bg, ink: v.ink, embed: toEmbed(v.url), soon: t('Video disponible pronto'),
     })),
     trust: TRUST.map(t),
     basicList: BASIC_LIST.map(t),
